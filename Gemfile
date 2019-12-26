@@ -19,4 +19,5 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-readme-index"
   gem "jekyll-titles-from-headings"
+  gem "github-pages"
 end
