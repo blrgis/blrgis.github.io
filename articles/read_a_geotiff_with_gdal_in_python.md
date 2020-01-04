@@ -1,6 +1,5 @@
 # Reading GeoTiff raster images in python3
 
-| ------- | ------- | ------- | -------|------|------|-------|
 | [Gokul Ganesan](https://www.linkedin.com/in/gokul-ganesan/) | &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Fa7C0n"><img alt="SVG" src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="15px" height="15px"> | &nbsp;<a href="https://www.linkedin.com/in/gokul-ganesan/"><img alt="PNG" src="/icons/icons8-linkedin.svg" width="18px" height="18px"> | &nbsp;[:octocat: ](https://github.com/Fa7C0n)||||
 
 With the constant increase in the volume of earth observation data from satellites and also from aerial platforms like aircrafts and drones it is inevitable that we need use a programming language to automate some of the repetitive tasks. In the recent years python has become the defacto language for data science and machine learning mainly due to its simple structre and a very rich library collections, so in the following article I tried to explain the first step towards automating a raster processing workflow (i.e) reading a raster data.
