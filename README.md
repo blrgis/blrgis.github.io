@@ -10,3 +10,4 @@ These articles are written as part of our learning process for all of these GIS 
 ## Articles
 
 - [reading a GeoTiff raster in python3](./articles/read_a_geotiff_with_gdal_in_python.md)
+- [serving raster basemaps in the web](./articles/serving_raster_basemaps.md)
