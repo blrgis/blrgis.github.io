@@ -48,10 +48,10 @@ Next, we will add an OSM map into the map:
       });
     </script>
 ```
-```
-ol.Map: it is the function call to add a map object from openlayers to your target map div.
+```javascript
+new ol.Map: it is the function call to add a map object from openlayers to your target map div.
 layers: this will contain all the names of the layers which will sit in your target map div.
-
+new ol.view: sets the default center and zoom values for the map.
 ```
 
 Final HTML will look like this:
@@ -92,6 +92,15 @@ Final HTML will look like this:
 ```
 
 ##### 2. Placing the flight details
+
+AJAX library is used to fetch live flight details from a URL.
+[opensky](https://opensky-network.org/) website gives the details of the flights. I used an API with URL: 'https://opensky-network.org/api/states/all?lamin=5&lomin=64&lamax=34&lomax=90' to fetch the details using GET request. (For the HTTP requests, read it [here](https://www.w3schools.com/xml/xml_http.asp).)
+
+'success' is used when the api returns a successfull request.
+
+'marker' is used to display an icon over the flights.
+
+'addLayer' adds the given layer to the list of layers that will be in the map div.
 
 ```javascript
  $.ajax({
