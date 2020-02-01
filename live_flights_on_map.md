@@ -1,7 +1,13 @@
-## Documentation for live flight details on a map
+# Documentation for visualising live flight location on an OSM map
+
+| [Arnab Dutta](https://arnabdutta73.github.io/) |&nbsp;<a href="https://twitter.com/Fa7C0n"><img alt="SVG" src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="17px" height="17px"> &nbsp;<a href="https://www.linkedin.com/in/arnab-dutta/"><img alt="PNG" src="/icons/icons8-linkedin.svg" width="20px" height="20px"> &nbsp;[:octocat: ](https://github.com/arnabdutta73) &nbsp;[:email: ](mailto:arnabdutta73@gmail.com)|
+
+
+`*Note: Article assumes HTML basic knowledge as a prequisite.`
 
 ##### 1. Map Creation
 
+After balancing out the pros and cons of Openlayers, Leaflet, and mapbox, I decided to go with OpenLayers.
 Firstly, we have to insert OpenLayers css into an HTML file:
 
 ```html
@@ -19,6 +25,8 @@ Inside `body` of the html file, we have to create a `map` \<div>:
 ```html
 <div id="map" class="map"></div>
 ``` 
+`Note: the <div> tag containg 'map' id should be the same everywhere in the code. So, if you chose an id as 'MyMap', just put 'MyMap' anywhere you want to use the object.`
+
 
 In the above `map` \<div>, our map will reside.
 
@@ -40,7 +48,11 @@ Next, we will add an OSM map into the map:
       });
     </script>
 ```
+```
+ol.Map: it is the function call to add a map object from openlayers to your target map div.
+layers: this will contain all the names of the layers which will sit in your target map div.
 
+```
 
 Final HTML will look like this:
 ```html
