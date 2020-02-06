@@ -22,4 +22,7 @@ this context.
 - Vector Data
 
 ### The main difference:
-Raster data is basically images with fundamental  
+Raster data is basically images with fundamental element being a
+'pixel'. Whereas, in Vector data, the fundamental element is a point.
+
+ 
