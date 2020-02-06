@@ -59,6 +59,7 @@ Next, we will add an OSM map into the map:
 new ol.Map: it is the function call to add a map object from openlayers to your target map div.
 layers: this will contain all the names of the layers which will sit in your target map div.
 new ol.view: sets the default center and zoom values for the map.
+new ol.layer.Tile: This will be the basemap of this project.
 ```
 
 Final HTML will look like this:
