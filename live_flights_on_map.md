@@ -60,6 +60,7 @@ new ol.Map: it is the function call to add a map object from openlayers to your 
 layers: this will contain all the names of the layers which will sit in your target map div.
 new ol.view: sets the default center and zoom values for the map.
 new ol.layer.Tile: This will be the basemap of this project.
+ol.proj.fromLonLat: this is change of map projection from longitude latitude.
 ```
 
 Final HTML will look like this:
