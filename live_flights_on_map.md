@@ -1,6 +1,13 @@
 # Documentation for visualising live flight location on an OSM map
 
-| [Arnab Dutta](https://arnabdutta73.github.io/) |&nbsp;<a href="https://twitter.com/Fa7C0n"><img alt="SVG" src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="17px" height="17px"> &nbsp;<a href="https://www.linkedin.com/in/arnab-dutta/"><img alt="PNG" src="/icons/icons8-linkedin.svg" width="20px" height="20px"> &nbsp;[:octocat: ](https://github.com/arnabdutta73) &nbsp;[:email: ](mailto:arnabdutta73@gmail.com)|
+| [Arnab Dutta](https://arnabdutta73.github.io/) |&nbsp;<a
+href="https://twitter.com/arnabdutta73"><img alt="SVG"
+src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="17px"
+height="17px"> &nbsp;<a
+href="https://www.linkedin.com/in/arnab-dutta/"><img alt="PNG"
+src="/icons/icons8-linkedin.svg" width="20px" height="20px">
+&nbsp;[:octocat: ](https://github.com/arnabdutta73)
+&nbsp;[:email: ](mailto:arnabdutta73@gmail.com)|
 
 
 `*Note: Article assumes HTML basic knowledge as a prequisite.`
@@ -93,14 +100,22 @@ Final HTML will look like this:
 
 ##### 2. Placing the flight details
 
-AJAX library is used to fetch live flight details from a URL.
-[opensky](https://opensky-network.org/) website gives the details of the flights. I used an API with URL: 'https://opensky-network.org/api/states/all?lamin=5&lomin=64&lamax=34&lomax=90' to fetch the details using GET request. (For the HTTP requests, read it [here](https://www.w3schools.com/xml/xml_http.asp).)
+[AJAX library](https://www.w3schools.com/js/js_ajax_intro.asp) is used
+to fetch live flight details from a URL.
+[opensky](https://opensky-network.org/) website gives the details of the
+flights. I used an API with URL:
+'https://opensky-network.org/api/states/all?lamin=5&lomin=64&lamax=34&lomax=90'
+to fetch the details using GET request. (For the HTTP requests, read it
+[here](https://www.w3schools.com/xml/xml_http.asp).)
 
-'success' is used when the api returns a successfull request.
+`success` is used when the api returns a successfull request. 
 
-'marker' is used to display an icon over the flights.
+`marker` is used to display an icon over the flights.
 
-'addLayer' adds the given layer to the list of layers that will be in the map div.
+`addLayer` adds the given layer to the list of layers that will be in
+the map div.
+
+`new ol.style.Style` sets the style for the icons. 
 
 ```javascript
  $.ajax({
