@@ -14,7 +14,9 @@ src="/icons/icons8-linkedin.svg" width="20px" height="20px">
 
 ##### 1. Map Creation
 
-After balancing out the pros and cons of Openlayers, Leaflet, and mapbox, I decided to go with OpenLayers.
+After balancing out the
+[pros and cons](https://gis.stackexchange.com/questions/33918/choosing-openlayers-or-leaflet)
+of Openlayers, Leaflet, and mapbox, I decided to go with OpenLayers.
 Firstly, we have to insert OpenLayers css into an HTML file:
 
 ```html
