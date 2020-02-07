@@ -20,9 +20,12 @@ SONAR, etc.
 
 ## Geographic Information System
 
-Any information related to earth is called geographic information. The
-system that deals with the data and information of earth is called as
-Geographic Information System or in short 'GIS'.
+Any information related to earth's surface is called geographic
+information. The system that deals with the data and information of
+earth's surface is called as Geographic Information System or in short
+'GIS'.
+
+
 
 ## Types of datasets
 
@@ -37,7 +40,8 @@ Raster data is basically images with fundamental element being a
 
 Sample raster image vs Vector data structure:
  
- <img src="images/raster_vector.jpg" alt="drawing" width="900" align="left"/>
+ <img src="images/raster_vector.jpg" alt="drawing"
+width="900" align="center"/>
 
 Figure 1: Comparision of Raster and Vector Datasets
 
