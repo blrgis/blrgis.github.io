@@ -1,11 +1,11 @@
 | [Arnab Dutta](https://arnabdutta73.github.io/) |&nbsp;<a
 href="https://twitter.com/arnabdutta73"><img alt="SVG"
-src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="17px"
+src="../icons/Twitter_Social_Icon_Circle_Color.svg" width="17px"
 height="17px"> &nbsp;<a
 href="https://www.linkedin.com/in/arnab-dutta/"><img alt="PNG"
-src="/icons/icons8-linkedin.svg" width="20px" height="20px">
-&nbsp;[:octocat: ](https://github.com/arnabdutta73)
-&nbsp;[:email: ](mailto:arnabdutta73@gmail.com)|
+src="../icons/icons8-linkedin.svg" width="20px" height="20px">
+&nbsp;[:octocat:](https://github.com/arnabdutta73)
+&nbsp;[:email:](mailto:arnabdutta73@gmail.com)|
 
 
 # Basics of Remote Sensing and GIS
