@@ -1,4 +1,4 @@
-# Downloading Remote Sensing Data and its Analysis
+# Getting Started with Remote Sensing Data
 
 In this article, we will use remote sensing (here on refered to as RS) data to conduct simple analysis. Out of many satellites that orbit earth collecting RS data, here we will use the data from [LANDSAT](https://landsat.gsfc.nasa.gov/landsat-8/) satellite which is freely available and can be downloaded from [Earth Explorer](https://earthexplorer.usgs.gov). 
 
@@ -8,7 +8,7 @@ We will download the data for Bangalore, India. As shown in the screenshot below
 <img src = "/screenshots/search_location.png">
 Figure 1: Searching for area of interest in Earth Explorer
 
-<img src = "/screenshots/footprint.png">
+<img src = "/screenshots/footprint.PNG">
 Figure 2: Footprint of selected scene
 
 ## Downloading in Q-GIS
@@ -22,10 +22,10 @@ It is very to easy load both raster data and vector data in Q-GIS by simply usin
 It is clear from the first glance that the forest area around Bangalore district has decreased drastically from 1999 (Figure 3) to 2018 (Figure 4). Based on the images, we can also understand that there is significant growth in urban area. This shows that the city has seen a very rapid growth in two decades and as a result the forestarein the surrounding has gone down as well.
 
 
-<img src = "/screenshots/ndvi_1999.png">
+<img src = "/screenshots/ndvi_1999.PNG">
 Figure 3: NDVI for Bangalore, 1999
 
-<img src = "/screenshots/ndvi_2018.png">
+<img src = "/screenshots/ndvi_2018.PNG">
 Figure 4: NDVI for Bangalore, 2018
 
 Thus with very basic tools, we are able to analyse the changes that have taken place in the surroundings of Bangalore. 
