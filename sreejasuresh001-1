@@ -1,0 +1,199 @@
+Loading data from csv file into postgresql using python
+
+For any kind of applications, one of the major requirements is to store, modify and access data for viewing, analysing and finding insights from it. We are using PostgreSQL as it is an open source, highly stable and easily integratable with cloud too. We use **psycopg2** module of python for the connection with database.
+
+Sample data we will be using for this example:
+
+| stu\_id | stu\_firstname | stu\_lastname | department |
+| --- | --- | --- | --- |
+| 189056 | John | Dodge | CSE |
+| 189057 | Sarah | Smith | ECE |
+| 189058 | George | Dapper | EEE |
+| 189059 | Jack | Dodge | ME |
+| 189060 | Jessica | Jones | CSE |
+| 189061 | Dragon | Davich | ECE |
+| 189062 | Steve | Curio | EEE |
+| 189063 | Laura | Black | IT |
+| 189064 | Wilhelm | Blake | IT |
+
+**connect** method is used for establishing connection with database. The parameters are:
+
+&#39;user&#39;: the owner of database;
+
+&#39;password&#39;: password to access the database;
+
+&#39;host&#39;: host where Postgres server is currently running; localhost if local server is used, else hostname of remote server;
+
+&#39;port&#39;: port number of database;
+
+&#39;database&#39;: database name in which data has to be stored;
+
+Username is important as there are multiple users who are given different kinds of access to the database. This is done to increase security levels of data. Similarly multiple databases can be used to increase data security and division.
+
+connection = psycopg2.connect(user = &quot;username&quot;, password = &quot;password&quot;,                                 host = &quot;hostname&quot;, port = &quot;port\_number&quot;, database = &quot;database&quot;)
+
+Cursor objects are created to execute operations on the database. Execute method is used for executing commands. **cursor** method creates an object for handling operations on the database.
+
+cur=connection.cursor()
+
+Query for creating a table. This table has four columns stu\_id, stu\_firstname, stu\_lastname, and department
+
+create\_query = &quot;&quot;&quot;CREATE TABLE student(stu\_id integer PRIMARY KEY, stu\_firstname text, stu\_lastname text, department text)&quot;&quot;&quot;
+
+Query for inserting values into database.
+
+insert\_query = &quot;&quot;&quot;INSERT INTO student VALUES (%s, %s, %s, %s)&quot;, (189076, &#39;Alice&#39;, &#39;Bob&#39;, &#39;IT&#39;)&quot;&quot;&quot;
+
+cur.execute(insert\_query)
+
+To read a csv file use open method. &#39;r&#39; denotes read mode. Reader method creates an object to iterate through the file. Next method is used to skip the header row. This method needs to use csv module to read file contents.
+
+    with open(&#39;student\_details.csv&#39;, &#39;r&#39;) as filename:
+
+        fileReader = csv.reader(filename)
+
+        next(fileReader)
+
+For iterating through the file contents and inserting it into database.
+
+for row in fileReader:
+
+            cur.execute(&quot;&quot;&quot;INSERT INTO student VALUES (%s, %s, %s, %s)&quot;&quot;&quot;, row)
+
+More optimized insert would be to use copy\_from method for loading data without looping over INSERT command. The data is loaded without execute command as well. copy\_from directly loads data
+
+with open(&#39;user\_accounts.csv&#39;, &#39;r&#39;) as f:
+
+   next(f)
+
+   cur.copy\_from(f, &#39;users&#39;, sep=&#39;,&#39;)
+
+connection.commit()
+
+Query for selecting all values of the table. **fetchall** method retrieves all records
+
+select\_query = &quot;&quot;&quot;select \* from STUDENT&quot;&quot;&quot;
+
+cur.execute(select\_query)
+
+res\_allrecord = cur.fetchall()
+
+Query for selecting values of the table based on stu\_id. **fetchone** method retrieves the record based on given criteria
+
+select\_query = &quot;&quot;&quot;select \* from STUDENT where stu\_id = %s&quot;&quot;&quot;
+
+cur.execute(select\_query, ([stu\_id]))
+
+res\_record = cur.fetchone()
+
+Query for updating value based on stu\_id.
+
+update\_query = &quot;&quot;&quot;Update STUDENT set department = %s where stu\_id = %s&quot;&quot;&quot;
+
+cur.execute(update\_query, ([department, stu\_id] ))
+
+Query for deleting value based on stu\_id.
+
+delete\_query = &quot;&quot;&quot;Delete from STUDENT where stu\_id = %s&quot;&quot;&quot;
+
+cur.execute(delete\_query, ([stu\_id,] ))
+
+Close the cursor and connection
+
+cur.close()
+
+connection.close()
+
+import csv
+
+import psycopg2
+
+try:
+
+    connection = (user = &quot;username&quot;, password = &quot;password&quot;, host = &quot;hostname&quot;, port = &quot;port\_number&quot;, database = &quot;database&quot;)
+
+    cur=connection.cursor()
+
+    create\_query = &quot;&quot;&quot;CREATE TABLE student(stu\_id integer PRIMARY KEY, stu\_firstname text, stu\_lastname text, department text)&quot;&quot;&quot;
+
+    cur.execute(create\_query)
+
+    with open(&#39;student\_details.csv&#39;, &#39;r&#39;) as filename:
+
+        fileReader = csv.reader(filename)
+
+        next(fileReader) # Skip the header row.
+
+        for row in fileReader:
+
+            cur.execute(&quot;&quot;&quot;INSERT INTO student VALUES (%s, %s, %s, %s)&quot;&quot;&quot;, row)
+
+    stu\_id = 189065
+
+    department=&quot;ME&quot;
+
+    select\_query = &quot;&quot;&quot;select \* from STUDENT&quot;&quot;&quot;
+
+    cur.execute(select\_query)
+
+    res\_allrecord = cur.fetchall()
+
+    row\_count = cur.rowcount
+
+    print(row\_count, &quot; record/s fetched successfully!!&quot;)
+
+    print(&quot;Before updating record &quot;)
+
+    select\_query = &quot;&quot;&quot;select \* from STUDENT where stu\_id = %s&quot;&quot;&quot;
+
+    cur.execute(select\_query, ([stu\_id]))
+
+    res\_record = cur.fetchone()
+
+    print(res\_record)
+
+    update\_query = &quot;&quot;&quot;Update STUDENT set department = %s where stu\_id = %s&quot;&quot;&quot;
+
+    cur.execute(update\_query, ([department, stu\_id]))
+
+    connection.commit()
+
+    row\_count = cur.rowcount
+
+    print(row\_count, &quot; record/s updated successfully &quot;)
+
+    print(&quot;After updating record &quot;)
+
+    select\_query = &quot;&quot;&quot;select \* from STUDENT where stu\_id = %s&quot;&quot;&quot;
+
+    cur.execute(select\_query, ([stu\_id]))
+
+    res\_record = cur.fetchone()
+
+    print(res\_record)
+
+    delete\_query = &quot;&quot;&quot;Delete from STUDENT where stu\_id = %s&quot;&quot;&quot;
+
+    cur.execute(delete\_query, ([stu\_id,] ))
+
+    connection.commit()
+
+    row\_count = cur.rowcount
+
+    print(row\_count, &quot; record/s deleted successfully!!&quot;)
+
+    connection.commit()
+
+except (Exception, psycopg2.Error) as error :
+
+    print (&quot;Error connecting to PostgreSQL!!&quot;, error)
+
+finally:
+
+        if(connection):
+
+            cur.close()
+
+            connection.close()
+
+            print(&quot;Connection is closed successfully!!&quot;)
