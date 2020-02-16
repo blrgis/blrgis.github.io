@@ -1,3 +1,9 @@
+---
+layout: default
+title: serving raster basemaps
+permalink: articles/serving_raster_basemaps.html
+---
+
 # Serving custom raster basemaps
 
 | [Gokul Ganesan](https://www.linkedin.com/in/gokul-ganesan/) | &nbsp;<a href="https://twitter.com/Fa7C0n"><img alt="SVG" src="/icons/Twitter_Social_Icon_Circle_Color.svg" width="17px" height="17px"> &nbsp;<a href="https://www.linkedin.com/in/gokul-ganesan/"><img alt="PNG" src="/icons/icons8-linkedin.svg" width="20px" height="20px"> &nbsp;[:octocat: ](https://github.com/Fa7C0n) &nbsp;[:email: ](mailto:gokulvganesan@gmail.com)|2020-02-01|
