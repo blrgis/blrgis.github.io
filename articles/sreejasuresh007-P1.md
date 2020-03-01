@@ -1,5 +1,8 @@
 # Loading data from csv file into postgresql using python
 
+| [Sreeja Suresh] [Git](https://github.com/sreejasuresh007) &nbsp;[:email: ](mailto:sureshsreeja.2015@gmail.com)|2020-02-03|
+
+
 For any kind of applications, one of the major requirements is to store, modify and access data for viewing, analysing and finding insights from it. We are using PostgreSQL as it is an open source, highly stable and can be easily integrated with cloud too. We use **psycopg2** module of python for the connection with database. 
 
 Sample data we will be using for this example:
@@ -30,32 +33,32 @@ stu_id | stu_firstname | stu_lastname | department
 
 1. Username is important as there are multiple users who are given different kinds of access to the database. This is done to increase security levels of data. Similarly multiple databases can be used to increase data security and division. 
 
-```
+```python
 connection = psycopg2.connect(user = "username", password = "password", host = "hostname", port = "port_number", database = "database")
 ```
 
 2. Cursor objects are created to execute operations on the database. Execute method is used for executing commands. **cursor** method creates an object for handling operations on the database.
 
-```
+```python
 cur=connection.cursor()
 ```
 
 3. Query for creating a table. This table has four columns stu_id, stu_firstname, stu_lastname, and department
 
-```
+```python
 create_query = """CREATE TABLE student(stu_id integer PRIMARY KEY, stu_firstname text, stu_lastname text, department text)"""   
 ```
 
 4. Query for inserting values into database. 
 
-```
+```python
 insert_query = """INSERT INTO student VALUES (%s, %s, %s, %s)", (189076, 'Alice', 'Bob', 'IT')""" 
 cur.execute(insert_query) 
 ```
 
 5. To read a csv file use open method. ‘r’ denotes read mode. Reader method creates an object to iterate through the file. Next method is used to skip the header row. This method needs to use csv module to read file contents.
 
-```
+```python
 with open(‘student_details.csv', 'r') as filename:
   fileReader = csv.reader(filename)
   next(fileReader)
@@ -63,14 +66,14 @@ with open(‘student_details.csv', 'r') as filename:
 
 6. For iterating through the file contents and inserting it into database.
 
-```
+```python
 for row in fileReader:
   cur.execute("""INSERT INTO student VALUES (%s, %s, %s, %s)""", row)
 ```
 
 7. More optimized insert would be to use copy_from method for loading data without looping over INSERT command. The data is loaded without execute command as well. copy_from directly loads data 
 
-```
+```python
 with open('user_accounts.csv', 'r') as f:
    next(f) 
    cur.copy_from(f, 'users', sep=',')
@@ -79,7 +82,7 @@ connection.commit()
 
 8. Query for selecting all values of the table. **fetchall** method retrieves all records 
 
-```
+```python
 select_query = """select * from STUDENT"""
 cur.execute(select_query)
 res_allrecord = cur.fetchall()
@@ -87,7 +90,7 @@ res_allrecord = cur.fetchall()
 
 9. Query for selecting values of the table based on stu_id. fetchone method retrieves the record based on given criteria
 
-```
+```python
 select_query = """select * from STUDENT where stu_id = %s"""
 cur.execute(select_query, ([stu_id]))
 res_record = cur.fetchone()
@@ -95,28 +98,28 @@ res_record = cur.fetchone()
 
 10. Query for updating value based on stu_id
 
-```
+```python
 update_query = """Update STUDENT set department = %s where stu_id = %s"""    
 cur.execute(update_query, ([department, stu_id] ))
 ```
 
 11.Query for deleting value based on stu_id
 
-```
+```python
 delete_query = """Delete from STUDENT where stu_id = %s"""
 cur.execute(delete_query, ([stu_id,] ))
 ```
 
 12. Close the cursor and connection
 
-```
+```python
 cur.close()
 connection.close()
 ```
 
 **Complete python code**
 
-```
+```python
 import csv
 import psycopg2
 try:
