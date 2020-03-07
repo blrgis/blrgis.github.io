@@ -15,3 +15,4 @@ This space is for scribbling our thoughts and concepts that could be used for so
 
 - [reading a GeoTiff raster in python3](./articles/read_a_geotiff_with_gdal_in_python.md)
 - [serving raster basemaps in the web](./articles/serving_raster_basemaps.md)
+- [live flights on an OSM map](./articles/live_flights_on_map.md)
