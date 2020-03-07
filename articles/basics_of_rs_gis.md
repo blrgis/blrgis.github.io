@@ -39,7 +39,7 @@ objects. Camera is one of the example of passive sensing device.
 ### Types of remote sensing
 There are majorly three types of remote sensing performed:
 - Ground based
-- Areal
+- Aerial
 - Satellite based
 
 ##### Ground based
@@ -106,4 +106,3 @@ system, its called geo-referencing.
 
 [This website](https://www.gistda.or.th/main/en/node/950) gives the
 types of projections for the earth coordinate system.
-
