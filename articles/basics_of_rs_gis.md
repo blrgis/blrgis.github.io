@@ -1,3 +1,8 @@
+---
+layout: default
+title: Basics of Remote Sensing and GIS
+permalink: articles/basics_of_rs_gis.html
+---
 
 # Basics of Remote Sensing and GIS
 | [Arnab Dutta](https://arnabdutta73.github.io/) |&nbsp;<a
@@ -12,8 +17,7 @@ src="../icons/icons8-linkedin.svg" width="20px" height="20px">
 
 ## Remote Sensing
 
-As we can see in the name itself, Remote Sensing is study and
-application of sensory devices which senses remotely, i.e., without
+As we can see in the name itself, Remote Sensing is the study of objects which are sensed through sensory devices remotely, i.e., without
 physically touching. Eyes and ears in the body are a good example of
 remote sensing organs. Some more examples include camera, LiDAR, RADAR,
 SONAR, etc.
@@ -76,7 +80,7 @@ Raster data is basically images with fundamental element being a
 
 Sample raster image vs Vector data structure:
  
- <img src="images/raster_vector.jpg" alt="drawing"
+ <img src="images/basics_of_rs_gis/raster_vector.jpg" alt="drawing"
 width="900" align="center"/>
 
 Figure 1: Comparision of Raster and Vector Datasets
@@ -91,6 +95,7 @@ enclosed with three points.
 
 
 ### Projection
+Projection, in general, means viewing an object residing in a higher dimensional system from a lower dimensional system. When we see the world, we view it in 3D, however, when we create a map, it is in 2D. Maps are the projection of 3D world onto a 2D system.
 In Figure 1, we see that the coordinate system is a local system where
 (0,0) is the origin. When this coordinate system is transformed into
 some other system its called Projection.
